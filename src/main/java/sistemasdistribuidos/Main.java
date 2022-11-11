@@ -5,8 +5,9 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Main {
-    protected static int port = 8080;
-    protected static String host = "localhost";
+    private final static int primaryPort = 8081;
+    private final static int secondaryPort = 8082;
+    private final static String host = "localhost";
 
     public static void main(String[] args) {
         if (args.length > 0) {
@@ -36,7 +37,7 @@ public class Main {
             // Read and send message
             do {
                 // Connect to Server
-                socket = ConnectTo();
+                socket = ConnectTo(primaryPort);
 
                 // Send message to server
                 str = in.nextLine();
@@ -47,10 +48,10 @@ public class Main {
                 socket.close();
 
                 // Stop if client write 'stop'
-                if (str.trim().toLowerCase().equals("stop")) break;
+                if (str.trim().equalsIgnoreCase("stop")) break;
 
                 // Receive from server
-                ss = ReceiveFrom();
+                ss = ReceiveFrom(secondaryPort);
                 socket = ss.accept();
 
                 // Read message from server
@@ -80,7 +81,7 @@ public class Main {
             // Read and send message
             do {
                 // Receive from client
-                ss = ReceiveFrom();
+                ss = ReceiveFrom(primaryPort);
                 socket = ss.accept();
 
                 // Read message from client
@@ -90,10 +91,10 @@ public class Main {
                 ss.close();
 
                 // Stop if server write 'stop'
-                if (str.trim().toLowerCase().equals("stop")) break;
+                if (str.trim().equalsIgnoreCase("stop")) break;
 
                 // Connect to client
-                socket = ConnectTo();
+                socket = ConnectTo(secondaryPort);
 
                 // Send message to client
                 str = in.nextLine();
@@ -108,23 +109,11 @@ public class Main {
         }
     }
 
-    private static ServerSocket ReceiveFrom() {
-        while (true) {
-            try {
-                return new ServerSocket(port);
-            } catch (Exception e){
-                // Wait to connect
-            }
-        }
+    private static ServerSocket ReceiveFrom(int port) throws IOException {
+        return new ServerSocket(port);
     }
 
-    private static Socket ConnectTo() {
-        while (true) {
-            try {
-                return new Socket(host, port);
-            } catch (Exception e){
-                // Wait to connect
-            }
-        }
+    private static Socket ConnectTo(int port) throws IOException {
+        return new Socket(host, port);
     }
 }
