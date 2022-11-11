@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MessengerSincrono:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MessengerSincrono_jar</output-path>
+    <root id="archive" name="MessengerSincrono.jar">
+      <element id="module-output" name="MessengerSincrono" />
+    </root>
+  </artifact>
+</component>
