@@ -6,18 +6,19 @@ import sistemasdistribuidos.interfaces.IMessageService;
 import sistemasdistribuidos.interfaces.ISynchronousService;
 
 import java.io.*;
-import java.net.*;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        ISynchronousService synchronousService = SynchronousFactory.getSynchronousService();
+        synchronousService.Execute(args);
+    }
+
+    private void AsynchronousMode(String[] args){
+        // Testing
         if (args.length > 0) {
             IMessageService messageService = AsynchronousFactory.getMessageService();
-            if (Integer.parseInt(args[0]) == 1) {
-
-            }
-            else {
+            if (Integer.parseInt(args[0]) == 0) {
                 messageService.SaveMessage("Início da mensagem.");
                 messageService.SaveMessage("Mensagem 1.");
                 messageService.SaveMessage("Mensagem 2.");
@@ -35,10 +36,5 @@ public class Main {
         else {
             System.out.println("No parameters informed.");
         }
-
-        /*
-        ISynchronousService synchronousService = SynchronousFactory.getSynchronousService();
-        synchronousService.Execute(args);
-        * */
     }
 }

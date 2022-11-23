@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add more abstraction in classes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IMessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" afterDir="false" />
+    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add message handler to control messages in file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAssynchronousService.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669163698036</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: add message handler to control messages in file">
+      <created>1669166946195</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669166946195</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +137,7 @@
     <MESSAGE value="feat: add gitignore" />
     <MESSAGE value="feat: add dual port communication" />
     <MESSAGE value="feat: add more abstraction in classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add more abstraction in classes" />
+    <MESSAGE value="feat: add message handler to control messages in file" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add message handler to control messages in file" />
   </component>
 </project>
