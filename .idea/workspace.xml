@@ -9,15 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add dual port communication">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/SynchronousFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAssynchronousService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/ISynchronousService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/SynchronousService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MessengerSincrono_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MessengerSincrono_jar.xml" afterDir="false" />
+    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add more abstraction in classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAssynchronousService.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Kotlin Interface" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -58,7 +58,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sistemasdistribuidos.Main" />
       <module name="MessengerSD" />
@@ -110,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668202523222</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: add more abstraction in classes">
+      <created>1669163698036</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669163698036</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +135,7 @@
     <MESSAGE value="feat: add logic to a simple chat communication" />
     <MESSAGE value="feat: add gitignore" />
     <MESSAGE value="feat: add dual port communication" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add dual port communication" />
+    <MESSAGE value="feat: add more abstraction in classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add more abstraction in classes" />
   </component>
 </project>
