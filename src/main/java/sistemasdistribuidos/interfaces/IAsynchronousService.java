@@ -1,6 +1,6 @@
 package sistemasdistribuidos.interfaces;
 
 public interface IAsynchronousService {
-    void StartClientCommunication();
+    void StartClient();
     void StartServer();
 }

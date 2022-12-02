@@ -9,9 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add message handler to control messages in file">
+    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add synchronous mode as main method">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +57,16 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Client" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.Client 2">
+    <configuration name="Client 1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sistemasdistribuidos.Main" />
+      <module name="MessengerSD" />
+      <option name="PROGRAM_PARAMETERS" value="1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client 2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sistemasdistribuidos.Main" />
       <module name="MessengerSD" />
       <option name="PROGRAM_PARAMETERS" value="1" />
@@ -71,7 +84,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Client 1" />
+      <item itemvalue="Application.Client 2" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -118,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669166946195</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: add synchronous mode as main method">
+      <created>1669167067248</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669167067248</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +159,18 @@
     <MESSAGE value="feat: add dual port communication" />
     <MESSAGE value="feat: add more abstraction in classes" />
     <MESSAGE value="feat: add message handler to control messages in file" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add message handler to control messages in file" />
+    <MESSAGE value="feat: add synchronous mode as main method" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add synchronous mode as main method" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
