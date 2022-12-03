@@ -9,14 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add synchronous mode as main method">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" afterDir="false" />
+    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add more logics to async services and models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/factories/AsynchronousFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/ISynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/ISynchronousService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +47,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/eduardo/Projects/CEFET/Java/MessengerSincrono&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowDebug.ShowToolbar": "false",
+    "last_opened_file_path": "/Users/eduardo/Projects/CEFET/Java/MessengerSincrono",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RunManager" selected="Application.Client 2">
+}]]></component>
+  <component name="RunManager" selected="Application.Client 1">
     <configuration name="Client 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sistemasdistribuidos.Main" />
       <module name="MessengerSD" />
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669167067248</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add more logics to async services and models">
+      <created>1670006967872</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670006967872</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,17 +169,7 @@
     <MESSAGE value="feat: add more abstraction in classes" />
     <MESSAGE value="feat: add message handler to control messages in file" />
     <MESSAGE value="feat: add synchronous mode as main method" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add synchronous mode as main method" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat: add more logics to async services and models" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add more logics to async services and models" />
   </component>
 </project>

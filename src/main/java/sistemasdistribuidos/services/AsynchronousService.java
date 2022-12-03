@@ -20,16 +20,6 @@ public class AsynchronousService implements IAsynchronousService {
         try {
             Client client = new Client(host, port);
             client.connect();
-
-            new Thread(() -> {
-                try {
-                    client.listenMessage();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }).start();
-
-            client.writeMessage();
         } catch (IOException e) {
             System.out.println("An error occurred starting client connection.");
             e.printStackTrace();
@@ -39,5 +29,21 @@ public class AsynchronousService implements IAsynchronousService {
     @Override
     public void StartServer() {
         Server.start(port);
+    }
+
+    @Override
+    public void Execute(String[] args) {
+        if (args.length > 0) {
+            // Server
+            if (Integer.parseInt(args[0]) == 0) {
+                StartServer();
+            }
+            // Client
+            else {
+                StartClient();
+            }
+        } else {
+            System.out.println("No parameters informed.");
+        }
     }
 }

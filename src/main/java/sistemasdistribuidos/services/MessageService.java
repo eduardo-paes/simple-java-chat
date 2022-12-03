@@ -25,7 +25,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public void LoadMessages() {
+    public synchronized void LoadMessages() {
         try {
             File msgFile = new File(msgFileName);
             Scanner reader = new Scanner(msgFile);
@@ -41,7 +41,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public void SaveMessage(String message) {
+    public synchronized void SaveMessage(String message) {
         // Create file if it doesn't exist
         CreateMessageFile();
 
@@ -57,7 +57,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public void ClearMessages() {
+    public synchronized void ClearMessages() {
         File msgFile = new File(msgFileName);
         if (!msgFile.delete()) {
             System.out.println("Failed to delete messages.");
