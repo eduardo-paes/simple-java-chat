@@ -6,16 +6,17 @@ import java.io.*;
 import java.util.Scanner;
 
 public class MessageService implements IMessageService {
-    private static String msgFileName;
+    private final String msgFileName;
 
-    public MessageService() {
-        msgFileName = "messages.txt";
+    public MessageService(String msgFileName) {
+        String directoryMessages = "messages/";
+        this.msgFileName = directoryMessages + msgFileName;
     }
 
     protected void CreateMessageFile() {
         try {
             File msgFile = new File(msgFileName);
-            if (msgFile.createNewFile()){
+            if (msgFile.createNewFile()) {
                 System.out.println("Backup message created.");
             }
         } catch (IOException e) {
@@ -28,12 +29,14 @@ public class MessageService implements IMessageService {
     public synchronized void LoadMessages() {
         try {
             File msgFile = new File(msgFileName);
-            Scanner reader = new Scanner(msgFile);
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
-                System.out.println(data);
+            if (msgFile.exists()){
+                Scanner reader = new Scanner(msgFile);
+                while (reader.hasNextLine()) {
+                    String data = reader.nextLine();
+                    System.out.println(data);
+                }
+                reader.close();
             }
-            reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred loading messages.");
             e.printStackTrace();

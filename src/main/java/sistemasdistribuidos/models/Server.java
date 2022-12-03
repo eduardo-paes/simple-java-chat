@@ -6,19 +6,20 @@ import sistemasdistribuidos.interfaces.IMessageService;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Server extends Thread {
+    //region Attributes
     private static ArrayList<BufferedWriter> clients;
     private final Socket sConnection;
     private BufferedReader bReader;
     private final IMessageService messageService;
+    //endregion
 
+    //region Constructor
     public Server(Socket connection) {
         this.sConnection = connection;
-        this.messageService = AsynchronousFactory.getMessageService();
+        this.messageService = AsynchronousFactory.getMessageService("server_messages.txt");
         try {
             InputStream in = connection.getInputStream();
             InputStreamReader inr = new InputStreamReader(in);
@@ -27,22 +28,21 @@ public class Server extends Thread {
             e.printStackTrace();
         }
     }
+    //endregion
 
+    //region Methods
     public void run() {
         try {
-            OutputStream output =  this.sConnection.getOutputStream();
+            OutputStream output = this.sConnection.getOutputStream();
             Writer writer = new OutputStreamWriter(output);
             BufferedWriter buffer = new BufferedWriter(writer);
             clients.add(buffer);
 
             String msg;
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-
-            while (true)
-            {
+            while (true) {
                 msg = bReader.readLine();
                 if (msg != null) {
-                    messageService.SaveMessage(String.format("[%s] - %s", dtf.format(LocalDateTime.now()), msg));
+                    messageService.SaveMessage(msg);
                     if (msg.contains("Disconnecting...")) {
                         clients.remove(buffer);
                     }
@@ -74,11 +74,12 @@ public class Server extends Thread {
     }
 
     private void sendToAll(BufferedWriter bwSaida, String msg) throws IOException {
-        for (BufferedWriter bw : clients){
-            if (!(bwSaida == bw)){
+        for (BufferedWriter bw : clients) {
+            if (!(bwSaida == bw)) {
                 bw.write(msg + "\r\n");
                 bw.flush();
             }
         }
     }
+    //endregion
 }
