@@ -8,7 +8,7 @@ import sistemasdistribuidos.interfaces.ISynchronousService;
 public class Main {
 
     public static void main(String[] args) {
-        AsynchronousMode(args);
+        SynchronousMode(args);
     }
 
     private static void AsynchronousMode(String[] args) {

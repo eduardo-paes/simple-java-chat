@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add more logics to async services and models">
+    <list default="true" id="fcdaba14-ed73-4919-8d75-44d0fd63ac79" name="Changes" comment="feat: add support to reconnection and load old messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/IAsynchronousService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/ISynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/interfaces/ISynchronousService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/models/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/AsynchronousService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sistemasdistribuidos/services/MessageService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/async" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -148,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670006967872</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: add support to reconnection and load old messages">
+      <created>1670078565382</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670078565382</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,7 +162,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -170,6 +188,7 @@
     <MESSAGE value="feat: add message handler to control messages in file" />
     <MESSAGE value="feat: add synchronous mode as main method" />
     <MESSAGE value="feat: add more logics to async services and models" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add more logics to async services and models" />
+    <MESSAGE value="feat: add support to reconnection and load old messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add support to reconnection and load old messages" />
   </component>
 </project>
