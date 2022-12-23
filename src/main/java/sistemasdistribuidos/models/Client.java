@@ -14,8 +14,11 @@ public class Client {
     private IMessageService messageService;
     private Socket socket;
     private OutputStream output;
+    private OutputStream pingOutput;
     private Writer writer;
+    private Writer pingWriter;
     private BufferedWriter buffer;
+    private BufferedWriter pingBuffer;
     private String name;
     private final String host;
     private final int port;
@@ -37,8 +40,11 @@ public class Client {
 
         // Get input/output buffer/writer
         output = socket.getOutputStream();
-        writer = new OutputStreamWriter(output);
+        pingOutput = socket.getOutputStream();
+        writer = new OutputStreamWriter(socket.getOutputStream());
+        pingWriter = new OutputStreamWriter(socket.getOutputStream());
         buffer = new BufferedWriter(writer);
+        pingBuffer = new BufferedWriter(pingWriter);
 
         // Get name from client
         System.out.print("Introduce your name: ");
@@ -53,6 +59,9 @@ public class Client {
 
         // Start to read messages from server
         listenMessage();
+
+        // Keep pinging server
+        keepPinging();
 
         // Start to get messages from client to send to server
         writeMessage();
@@ -75,6 +84,12 @@ public class Client {
                 while(getListen()) {
                     if (bfr.ready()) {
                         msg = bfr.readLine();
+                        if (msg.contains("!@#CHK_DIS$@!")) {
+                            buffer.write("!@#REC_DIS@!\n");
+                            buffer.flush();
+                            continue;
+                        }
+
                         messageService.SaveMessage(msg);
                         if (msg.toLowerCase().contains("disconnected")) {
                             msg = "Client disconnected.";
@@ -110,8 +125,26 @@ public class Client {
         buffer.close();
         writer.close();
         output.close();
+        pingBuffer.close();
+        pingWriter.close();
+        pingOutput.close();
         socket.close();
     }
+
+    private void keepPinging() {
+        new Thread(() -> {
+            try {
+                while(getListen()) {
+                    pingBuffer.write("!@#REC_DIS@!\n");
+                    pingBuffer.flush();
+                    Thread.sleep(250);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
     //endregion
 
     //region Listen Getter/Setter
