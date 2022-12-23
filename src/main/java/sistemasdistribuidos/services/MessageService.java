@@ -26,25 +26,38 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public synchronized void LoadMessages() {
+    public synchronized void loadMessages() {
         try {
-            File msgFile = new File(msgFileName);
-            if (msgFile.exists()){
-                Scanner reader = new Scanner(msgFile);
+            Scanner reader = this.getReader();
+            if (reader != null) {
                 while (reader.hasNextLine()) {
                     String data = reader.nextLine();
                     System.out.println(data);
                 }
                 reader.close();
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             System.out.println("An error occurred loading messages.");
             e.printStackTrace();
         }
     }
 
     @Override
-    public synchronized void SaveMessage(String message) {
+    public synchronized Scanner getReader() {
+        try {
+            File msgFile = new File(msgFileName);
+            if (msgFile.exists()){
+                return new Scanner(msgFile);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred loading messages.");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public synchronized void saveMessage(String message) {
         // Create file if it doesn't exist
         CreateMessageFile();
 
@@ -60,7 +73,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public synchronized void ClearMessages() {
+    public synchronized void clearMessages() {
         File msgFile = new File(msgFileName);
         if (!msgFile.delete()) {
             System.out.println("Failed to delete messages.");

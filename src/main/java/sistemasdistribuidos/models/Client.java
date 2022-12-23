@@ -69,16 +69,31 @@ public class Client {
 
     private void startChatMessages() {
         System.out.println("Chat started!\nLoading old messages...");
-        this.messageService.LoadMessages();
+
+        // Synchronize messages with server
+        try {
+            String msg;
+            BufferedReader bfr = getBufferedReader();
+            this.messageService.clearMessages();
+            while (true) {
+                if (bfr.ready()) {
+                    msg = bfr.readLine();
+                    if (msg.contains("END_SERVER_SYNC")) break;
+                    System.out.println(msg);
+                    messageService.saveMessage(msg);
+                }
+            }
+        } catch (Exception e) {
+            this.messageService.loadMessages();
+        }
+
         System.out.println("---");
     }
 
     private void listenMessage() {
         new Thread(() -> {
             try {
-                InputStream in = socket.getInputStream();
-                InputStreamReader inr = new InputStreamReader(in);
-                BufferedReader bfr = new BufferedReader(inr);
+                BufferedReader bfr = getBufferedReader();
 
                 String msg;
                 while(getListen()) {
@@ -90,7 +105,7 @@ public class Client {
                             continue;
                         }
 
-                        messageService.SaveMessage(msg);
+                        messageService.saveMessage(msg);
                         if (msg.toLowerCase().contains("disconnected")) {
                             msg = "Client disconnected.";
                         }
@@ -117,7 +132,7 @@ public class Client {
             }
 
             msg = String.format("%s: %s - [%s]", name, msg, dtf.format(LocalDateTime.now()));
-            messageService.SaveMessage(msg);
+            messageService.saveMessage(msg);
             buffer.write(msg + "\n");
             buffer.flush();
         }
@@ -143,6 +158,12 @@ public class Client {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private BufferedReader getBufferedReader() throws IOException {
+        InputStream in = socket.getInputStream();
+        InputStreamReader inr = new InputStreamReader(in);
+        return new BufferedReader(inr);
     }
 
     //endregion

@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class Server extends Thread {
     //region Attributes
@@ -62,6 +63,9 @@ public class Server extends Thread {
             buffer = getBufferedWriter(this.sConnection);
             clients.add(buffer);
 
+            // Send old messages from server to client
+            syncClientMessages(buffer);
+
             String msg;
             while (!this.sConnection.isClosed()) {
                 msg = bReader.readLine();
@@ -77,7 +81,7 @@ public class Server extends Thread {
                     if (this.clientName == null)
                         this.clientName = getClientName(msg);
 
-                    messageService.SaveMessage(msg);
+                    messageService.saveMessage(msg);
                     if (msg.contains("Disconnecting..."))
                         clients.remove(buffer);
 
@@ -108,18 +112,32 @@ public class Server extends Thread {
         }
     }
 
+    private void syncClientMessages(BufferedWriter buffer) throws IOException {
+        Scanner reader = messageService.getReader();
+        if (reader != null) {
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                buffer.write(data + "\r\n");
+                buffer.flush();
+            }
+            reader.close();
+        }
+        buffer.write("END_SERVER_SYNC\r\n");
+        buffer.flush();
+    }
+
     private void sendDisconnectionMessage(BufferedWriter buffer) {
         try {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
             String msg = String.format("%s: Disconnecting... - [%s]", this.clientName, dtf.format(LocalDateTime.now()));
-            messageService.SaveMessage(msg);
+            messageService.saveMessage(msg);
             sendToAll(buffer, msg);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private synchronized String getClientName(String text) {
+    private String getClientName(String text) {
         Optional<String> name = Arrays.stream(text.split(": ")).findFirst();
         return name.orElse("User");
     }

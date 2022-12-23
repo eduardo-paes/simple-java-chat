@@ -1,7 +1,10 @@
 package sistemasdistribuidos.interfaces;
 
+import java.util.Scanner;
+
 public interface IMessageService {
-    void LoadMessages();
-    void SaveMessage(String message);
-    void ClearMessages();
+    void loadMessages();
+    Scanner getReader();
+    void saveMessage(String message);
+    void clearMessages();
 }
